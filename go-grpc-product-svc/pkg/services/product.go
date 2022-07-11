@@ -83,7 +83,7 @@ func (s *Server) DecreaseStock(ctx context.Context, req *pb.DecreaseStockRequest
 		}, nil
 	}
 
-	product.Stock = product.Stock - 1
+	product.Stock = product.Stock - req.Quantity
 
 	s.H.DB.Save(&product)
 
